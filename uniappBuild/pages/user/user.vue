@@ -72,11 +72,11 @@
 				const loginType = uni.getStorageSync('login_type')
 				if (loginType === 'local') {
 					this.logout();
-					if (this.forcedLogin) {
+					// if (this.forcedLogin) {
 						uni.reLaunch({
 							url: '../login/login',
 						});
-					}
+					// }
 					return
 				}
 

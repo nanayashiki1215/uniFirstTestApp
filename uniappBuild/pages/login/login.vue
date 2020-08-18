@@ -1,12 +1,12 @@
 <template>
-	<view class="content">
+	<view class="content" style="padding: 0rpx;">
 		<!-- <view class="login-type">
 			<view v-for="(item,index) in loginTypeList" :key="index" @click="loginType = index" :class="{act: loginType === index}"
 			 class="login-type-btn">{{item}}</view>
 		</view> -->
 		<view class="image-item">
 		     <view class="image-content">
-		        <image style="width: 100%; height: 600rpx; background-color: #eeeeee;"  src="../../static/img/loginBgImage.png"
+		        <image style="width: 100%; height: 600rpx; background-color: #eeeeee;border-radius:0rpx;"  src="../../static/img/loginBgImage.png"
 		                        @error="imageError"></image>
 		     </view>
 		</view>
@@ -19,11 +19,11 @@
 			<view class="text-box" scroll-y="true" style="text-align: center;">
 			     <text style="text-align: center;font-size:60rpx;">电力运维云平台</text>
 			</view>
-			<view class="input-row border" style="width: 90%;margin-left: 5%;margin-top: 30rpx;">
+			<view class="input-row border" style="width: 90%;margin-left: 1%;margin-top: 30rpx;">
 				<text class="title">账号：</text>
 				<m-input class="m-input" type="text" clearable focus v-model="username" placeholder="请输入账号"></m-input>
 			</view>
-			<view class="input-row" style="width: 90%;margin-left: 5%;">
+			<view class="input-row" style="width: 90%;margin-left: 1%;">
 				<text class="title">密码：</text>
 				<m-input type="password" displayable v-model="password" placeholder="请输入密码"></m-input>
 			</view>
@@ -44,14 +44,14 @@
 		</view>
 		
 	</view>
-		<view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
+		<!-- <view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
 			<view class="oauth-image" v-for="provider in providerList" :key="provider.value">
-				<image :src="provider.image" @tap="oauth(provider.value)"></image>
+				<image :src="provider.image" @tap="oauth(provider.value)"></image> -->
 				<!-- #ifdef MP-WEIXIN -->
-				<button v-if="!isDevtools" open-type="getUserInfo" @getuserinfo="getUserInfo"></button>
+				<!-- <button v-if="!isDevtools" open-type="getUserInfo" @getuserinfo="getUserInfo"></button> -->
 				<!-- #endif -->
-			</view>
-		</view>
+		<!-- 	</view>
+		</view> -->
 	</view>
 </template>
 
@@ -193,37 +193,37 @@
 				};
 				let _self = this;
 
-				uniCloud.callFunction({
-					name: 'user-center',
-					data: {
-						action: 'login',
-						params: data
-					},
-					success: (e) => {
+				// uniCloud.callFunction({
+				// 	name: 'user-center',
+				// 	data: {
+				// 		action: 'login',
+				// 		params: data
+				// 	},
+				// 	success: (e) => {
 
-						console.log('login success', e);
+				// 		console.log('login success', e);
 
-						if (e.result.code == 0) {
-							uni.setStorageSync('uniIdToken', e.result.token)
-							uni.setStorageSync('username', e.result.username)
+				// 		if (e.result.code == 0) {
+							// uni.setStorageSync('uniIdToken', e.result.token)
+							uni.setStorageSync('username', this.username)
 							uni.setStorageSync('login_type', 'online')
 							_self.toMain(_self.username);
-						} else {
-							uni.showModal({
-								content: e.result.msg,
-								showCancel: false
-							})
-							console.log('登录失败', e);
-						}
+				// 		} else {
+				// 			uni.showModal({
+				// 				content: e.result.msg,
+				// 				showCancel: false
+				// 			})
+				// 			console.log('登录失败', e);
+				// 		}
 
-					},
-					fail(e) {
-						uni.showModal({
-							content: JSON.stringify(e),
-							showCancel: false
-						})
-					}
-				})
+				// 	},
+				// 	fail(e) {
+				// 		uni.showModal({
+				// 			content: JSON.stringify(e),
+				// 			showCancel: false
+				// 		})
+				// 	}
+				// })
 			},
 			loginBySms() {
 				if (!/^1\d{10}$/.test(this.mobile)) {
@@ -342,11 +342,11 @@
 				 * 返回首页也使用reLaunch方式
 				 */
 				if (this.forcedLogin) {
+					uni.navigateBack();
+				} else {
 					uni.reLaunch({
 						url: '../main/main',
 					});
-				} else {
-					uni.navigateBack();
 				}
 
 			}
@@ -373,14 +373,14 @@
 	}
 
 	.login-type-btn.act {
-		color: #0FAEFF;
-		border-bottom: solid 1px #0FAEFF;
+		color: #52C378;
+		border-bottom: solid 1px #52C378;
 	}
 
 	.send-code-btn {
 		width: 120px;
 		text-align: center;
-		background-color: #0FAEFF;
+		background-color: #52C378;
 		color: #FFFFFF;
 	}
 
@@ -391,11 +391,11 @@
 	}
 
 	.action-row navigator {
-		color: #007aff;
+		color: #52C378;
 		padding: 0 10px;
 	}
 
-	.oauth-row {
+	/* .oauth-row {
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
@@ -403,7 +403,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-	}
+	} */
 
 	.oauth-image {
 		position: relative;
@@ -430,7 +430,7 @@
 		opacity: 0;
 	}
 	.primary{
-		background-color: #52C378;
+		background-color: #52C378 !important;
 		width: 90%;
 	}
 	.uni-flex{
@@ -442,5 +442,18 @@
 		margin-left: 2.5%;  
 		border-radius: 25px;
 		box-shadow: 1px 1px 1px 1px #afbbd5; 
+	}
+	.input-group::before{
+		height: 0rpx;
+	}
+	
+	.input-row.border::after{
+		left: 30rpx;
+		right: 0rpx;
+	}
+	
+	.input-group::after{
+		left: 40rpx;
+		right: 65rpx;
 	}
 </style>

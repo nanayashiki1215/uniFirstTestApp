@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ipLogin/ipLogin",
     "pages/main/main",
     "pages/login/login",
     "pages/reg/reg",
@@ -9,12 +10,12 @@
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarBackgroundColor": "#0faeff",
+    "navigationBarBackgroundColor": "#50ACAC",
     "backgroundColor": "#fbf9fe"
   },
   "tabBar": {
     "color": "#7a7e83",
-    "selectedColor": "#0faeff",
+    "selectedColor": "#50ACAC",
     "backgroundColor": "#ffffff",
     "list": [
       {
@@ -31,6 +32,7 @@
       }
     ]
   },
+  "permission": {},
   "usingComponents": {},
   "sitemapLocation": "sitemap.json"
 }

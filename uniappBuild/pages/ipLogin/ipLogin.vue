@@ -1,18 +1,18 @@
 <template>
-	<view class="content">
+	<view class="content" style="padding: 0rpx;background-color: #FFFFFF;">
 		<!-- <view class="login-type">
 			<view v-for="(item,index) in loginTypeList" :key="index" @click="loginType = index" :class="{act: loginType === index}"
 			 class="login-type-btn">{{item}}</view>
 		</view> -->
-		 <view class="image-item">
+		 <!-- <view class="image-item"> -->
 		     <view class="image-content">
-		        <image style="width: 100%; height: 600rpx; background-color: #eeeeee;"  src="../../static/img/ipaddress.png"
+		        <image style="width: 100%; height: 600rpx; background-color: #FFFFFF;"  src="../../static/img/ipaddress.png"
 		                        @error="imageError"></image>
 		        </view>
-		</view>
-		<view class="input-group" v-if="loginType === 0">
+		<!-- </view> -->
+		<view class="input-group" style="margin-top: 100rpx;" v-if="loginType === 0">
 			<view class="input-row border" style="height: 67rpx;">
-				<image style="width:56rpx; height: 66rpx; background-color: #eeeeee;"  src="../../static/img/ip_icon.png"
+				<image style="width:56rpx; height: 66rpx; background-color: #FFFFFF;"  src="../../static/img/ip_icon.png"
 				                @error="imageError"></image>
 				<m-input class="m-input" type="text" clearable focus v-model="username" placeholder="请输入域名/服务器地址+端口"></m-input>
 			</view>
@@ -40,14 +40,14 @@
 			<!-- <text>|</text>
 			<navigator url="../pwd/pwd">忘记密码</navigator> -->
 		</view>
-		<view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
+		<!-- <view class="oauth-row" v-if="hasProvider" v-bind:style="{top: positionTop + 'px'}">
 			<view class="oauth-image" v-for="provider in providerList" :key="provider.value">
-				<image :src="provider.image" @tap="oauth(provider.value)"></image>
+				<image :src="provider.image" @tap="oauth(provider.value)"></image> -->
 				<!-- #ifdef MP-WEIXIN -->
-				<button v-if="!isDevtools" open-type="getUserInfo" @getuserinfo="getUserInfo"></button>
+				<!-- <button v-if="!isDevtools" open-type="getUserInfo" @getuserinfo="getUserInfo"></button> -->
 				<!-- #endif -->
-			</view>
-		</view>
+			<!-- </view>
+		</view> -->
 	</view>
 </template>
 
@@ -434,5 +434,18 @@
 	
 	.primary{
 		background-color: #52C378;
+	}
+	
+	.input-group::before{
+		height: 0rpx;
+	}
+	.input-row.border::after{
+		left: 60rpx;
+		right: 40rpx;
+	}
+	
+	.input-group::after{
+		left: 60rpx;
+		right: 40rpx;
 	}
 </style>
