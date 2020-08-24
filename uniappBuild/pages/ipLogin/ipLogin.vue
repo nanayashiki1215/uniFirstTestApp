@@ -10,11 +10,11 @@
 		                        @error="imageError"></image>
 		        </view>
 		<!-- </view> -->
-		<view class="input-group" style="margin-top: 100rpx;" v-if="loginType === 0">
+		<view class="input-group" style="margin-top: 100rpx;" v-if='ipAddress != null'>
 			<view class="input-row border" style="height: 67rpx;">
-				<image style="width:56rpx; height: 66rpx; background-color: #FFFFFF;"  src="../../static/img/ip_icon.png"
+				<image style="width:56rpx; height: 60rpx; background-color: #FFFFFF;"  src="../../static/img/ip_icon.png"
 				                @error="imageError"></image>
-				<m-input class="m-input" type="text" clearable focus v-model="username" placeholder="请输入域名/服务器地址+端口"></m-input>
+				<m-input class="m-input" type="text" clearable focus v-model="username" placeholder="请输入域名/服务器地址+端口">{{ipAddress}}</m-input>
 			</view>
 			<!-- <view class="input-row">
 				<text class="title">密码：</text>
@@ -22,14 +22,10 @@
 			</view> -->
 		</view>
 		<view class="input-group" v-else>
-			<view class="input-row border">
-				<text class="title">手机：</text>
-				<m-input class="m-input" type="text" clearable focus v-model="mobile" placeholder="请输入手机号码"></m-input>
-			</view>
-			<view class="input-row">
-				<text class="title">验证码：</text>
-				<m-input type="text" v-model="code" placeholder="请输入验证码"></m-input>
-				<view class="send-code-btn" @click="sendSmsCode">{{codeDuration ? codeDuration + 's' : '发送验证码' }}</view>
+			<view class="input-row border" style="height: 67rpx;">
+				<image style="width:56rpx; height: 60rpx; background-color: #FFFFFF;"  src="../../static/img/ip_icon.png"
+				                @error="imageError"></image>
+				<m-input class="m-input" type="text" clearable focus v-model="username"  placeholder="请输入域名/服务器地址+端口"></m-input>
 			</view>
 		</view>
 		<view class="btn-row">
@@ -75,7 +71,8 @@
 				password: '',
 				positionTop: 0,
 				isDevtools: false,
-				codeDuration: 0
+				codeDuration: 0,
+				ipAddress:uni.getStorage("ipAddress")
 			}
 		},
 		computed: mapState(['forcedLogin']),
@@ -433,7 +430,7 @@
 	}
 	
 	.primary{
-		background-color: #52C378;
+		background-color: #52C378 !important;
 	}
 	
 	.input-group::before{

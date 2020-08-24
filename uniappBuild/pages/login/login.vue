@@ -189,10 +189,27 @@
 				}
 				const data = {
 					username: this.username,
-					password: this.password
+					password: this.password,
+					deviceType:"IOS"
 				};
 				let _self = this;
 
+				this.http({
+					url:"/user/login",
+					method:"POST",
+					data:{"fLoginname":this.username,
+					"fPassword":this.password},
+					success:res => {
+						uni.setStorageSync('username', this.username)
+						uni.setStorageSync('token',res.data.token)
+						uni.setStorageSync('login_type', 'online')
+						_self.toMain(_self.username);
+					},
+					fail:err => {
+						console.log(err);
+					}
+				});
+		
 				// uniCloud.callFunction({
 				// 	name: 'user-center',
 				// 	data: {
@@ -205,9 +222,7 @@
 
 				// 		if (e.result.code == 0) {
 							// uni.setStorageSync('uniIdToken', e.result.token)
-							uni.setStorageSync('username', this.username)
-							uni.setStorageSync('login_type', 'online')
-							_self.toMain(_self.username);
+							
 				// 		} else {
 				// 			uni.showModal({
 				// 				content: e.result.msg,
@@ -260,6 +275,7 @@
 							uni.setStorageSync('uniIdToken', e.result.token)
 							uni.setStorageSync('username', username)
 							uni.setStorageSync('login_type', 'online')
+							uni.setStorageSync('hasLogin','1')
 							_self.toMain(username);
 						} else {
 							uni.showModal({

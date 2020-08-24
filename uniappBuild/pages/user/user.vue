@@ -2,13 +2,13 @@
 	<view class="">
 		<view class="center">
 			<view class="logo" @click="bindLogin" :hover-class="!hasLogin ? 'logo-hover' : ''">
-				<image class="logo-img" :src="avatarUrl"></image>
+				<image class="logo-img" src="../../static/img/touxiang.png"></image>
 				<view class="logo-title">
 					<text class="uer-name">Hi，{{hasLogin ? userName : '您未登录'}}</text>
 					<text class="go-login navigat-arrow" v-if="!hasLogin">&#xe65e;</text>
 				</view>
 			</view>
-			<view class="center-list">
+			<!-- <view class="center-list">
 				<view class="center-list-item border-bottom">
 					<text class="list-icon">&#xe60f;</text>
 					<text class="list-text">帐号管理</text>
@@ -38,7 +38,7 @@
 					<text class="list-text">关于应用</text>
 					<text class="navigat-arrow">&#xe65e;</text>
 				</view>
-			</view>
+			</view> -->
 			<view class="btn-row">
 				<button v-if="hasLogin" class="primary" type="primary" @tap="bindLogout">退出登录</button>
 			</view>
@@ -69,54 +69,53 @@
 				});
 			},
 			bindLogout() {
-				const loginType = uni.getStorageSync('login_type')
-				if (loginType === 'local') {
-					this.logout();
-					// if (this.forcedLogin) {
-						uni.reLaunch({
-							url: '../login/login',
-						});
-					// }
-					return
-				}
+				// const loginType = uni.getStorageSync('login_type')
+				// if (loginType === 'local') {
+				// 	this.logout();
+				// 	// if (this.forcedLogin) {
+				// 		uni.reLaunch({
+				// 			url: '../login/login',
+				// 		});
+				// 	// }
+				// 	return
+				// }
+				// uniCloud.callFunction({
+				// 	name: 'user-center',
+				// 	data: {
+				// 		action: 'logout'
+				// 	},
+				// 	success: (e) => {
 
-				uniCloud.callFunction({
-					name: 'user-center',
-					data: {
-						action: 'logout'
-					},
-					success: (e) => {
+				// 		console.log('logout success', e);
 
-						console.log('logout success', e);
+				// 		if (e.result.code == 0) {
+				// 			this.logout();
+				// 			uni.removeStorageSync('uniIdToken')
+				// 			uni.removeStorageSync('username')
+				// 			/**
+				// 			 * 如果需要强制登录跳转回登录页面
+				// 			 */
+				// 			if (this.forcedLogin) {
+				// 				uni.reLaunch({
+				// 					url: '../login/login',
+				// 				});
+				// 			}
+				// 		} else {
+				// 			uni.showModal({
+				// 				content: e.result.msg,
+				// 				showCancel: false
+				// 			})
+				// 			console.log('登出失败', e);
+				// 		}
 
-						if (e.result.code == 0) {
-							this.logout();
-							uni.removeStorageSync('uniIdToken')
-							uni.removeStorageSync('username')
-							/**
-							 * 如果需要强制登录跳转回登录页面
-							 */
-							if (this.forcedLogin) {
-								uni.reLaunch({
-									url: '../login/login',
-								});
-							}
-						} else {
-							uni.showModal({
-								content: e.result.msg,
-								showCancel: false
-							})
-							console.log('登出失败', e);
-						}
-
-					},
-					fail(e) {
-						uni.showModal({
-							content: JSON.stringify(e),
-							showCancel: false
-						})
-					}
-				})
+				// 	},
+				// 	fail(e) {
+				// 		uni.showModal({
+				// 			content: JSON.stringify(e),
+				// 			showCancel: false
+				// 		})
+				// 	}
+				// })
 
 
 			}
@@ -154,7 +153,7 @@
 		height: 240rpx;
 		padding: 20rpx;
 		box-sizing: border-box;
-		background-color: #0faeff;
+		background-color: #50ACAC;
 		flex-direction: row;
 		align-items: center;
 	}
@@ -238,7 +237,11 @@
 		flex: 1;
 		text-align: left;
 	}
-
+	
+	.primary{
+		background-color: #52C378 !important;
+		width: 90%;
+	}
 	.navigat-arrow {
 		height: 90rpx;
 		width: 40rpx;

@@ -27,7 +27,8 @@
 		},{
 			"path": "pages/Alarms/alarm",
 			"style": {
-				"navigationBarTitleText": "报警"
+				"navigationBarTitleText": "报警",
+				"enablePullDownRefresh":true
 			}
 		}, {
 			"path": "pages/pwd/pwd",
