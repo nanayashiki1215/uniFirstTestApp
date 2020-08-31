@@ -73,9 +73,9 @@
 				// if (loginType === 'local') {
 				// 	this.logout();
 				// 	// if (this.forcedLogin) {
-				// 		uni.reLaunch({
-				// 			url: '../login/login',
-				// 		});
+						uni.reLaunch({
+							url: '../login/login',
+						});
 				// 	// }
 				// 	return
 				// }

@@ -6,7 +6,8 @@
     "pages/reg/reg",
     "pages/Alarms/alarm",
     "pages/pwd/pwd",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/Alarms/alarmDetailNew"
   ],
   "subPackages": [],
   "window": {

@@ -2,7 +2,12 @@
 	<view>
 		 <!-- <web-view :webview-styles="webviewStyles" src="http://116.236.149.165:8090/fileVersion/v5/H5-2/alarms.html"></web-view> #52C378 -->
 		<uni-list>
-			<uni-list-item v-for="(item,index) in listData" v-if="index>0" :show-extra-icon="true" :extra-icon="alarmPic" :show-badge="true" showArrow :title="item.fMessinfotypeexplain" @switchChange="switchChange" style="color: #52C378;" :badge-text="unreadCount[index]['unConfirmNum']" >
+			<uni-list-item v-for="(item,index) in listData"
+			 v-if="index>0" :show-extra-icon="true" :extra-icon="alarmPic"
+			  :show-badge="true" showArrow :title="item.fMessinfotypeexplain" 
+			  :num="item.fMessinfotypeid" style="color: #52C378;"
+			  :badge-text="unreadCount[index]['unConfirmNum']" badgeType="error" 
+			  link :to="`../Alarms/alarmDetailNew?clickid=` + item.fMessinfotypeid" @click="selectAlarm($event,item)" >
 				<template slot="header">
 					<image class="slot-image" src="../../static/img/alarmPic.png" mode="widthFix"></image>
 				</template>
@@ -31,10 +36,10 @@
 		},
 		methods: {
 			//回调方法块
-			onClick() {
-				uni.showToast({
-					title: '列表被点击'
-				})
+			selectAlarm(e,id) {
+				// uni.navigateTo({        //点击跳转的方法
+				// 	url:'../Alarms/alarmDetailNew?clickid='+ id    //需要跳转的页面路径，使用问号进行id的传值，然后再拼接一个要传入的id
+				// })
 			},
 			getUnreadData(){
 				//未读数
@@ -54,7 +59,7 @@
 			},
 			getListData(){
 				this.http({
-					url:"http://116.236.149.165:8090/SubstationWEBV2/v5/getMessInfoType",
+					url:"/v5/getMessInfoType",
 					method:"GET",
 					header:{"Authorization":uni.getStorageSync('token')},
 					data:{"english":0},

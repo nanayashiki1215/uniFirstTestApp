@@ -3,7 +3,8 @@ module.exports = (params) => {
 	// let code = uni.getStorageSync('token')
 	var server = uni.getStorageSync('ipAddress');
 	// var versionNo = uni.getStorageSync('versionNo');
-	if(server != null && server.search("http")){
+	var global_url = '';
+	if(server != null && server.search("http") != -1){
 	 global_url = server;
 	}else{
 	 global_url = 'http://116.236.149.165:8090';

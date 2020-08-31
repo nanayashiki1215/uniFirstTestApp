@@ -83,6 +83,25 @@
 			}
 		},
 		computed: mapState(['forcedLogin']),
+		//页面初始加载
+		mounted() {
+		        let that = this;
+		
+		        //缓存的账号
+		        const HCuname = uni.getStorageSync('username');
+		        //缓存的密码
+		        const HCpassw = uni.getStorageSync('password');
+		        //         console.log(HCpassw+"缓存的密码")
+		        //         console.log(HCuname)
+		        //有缓存就赋值给文本没有就清空
+		        if (HCuname && HCpassw) {
+		            that.username = HCuname;
+		            that.password = HCpassw;
+		        } else {
+		            that.username = '';
+		            that.password = '';
+		        }
+		},
 		methods: {
 			...mapMutations(['login']),
 			initProvider() {
@@ -201,6 +220,7 @@
 					"fPassword":this.password},
 					success:res => {
 						uni.setStorageSync('username', this.username)
+						uni.setStorageSync('password', this.password)
 						uni.setStorageSync('token',res.data.token)
 						uni.setStorageSync('login_type', 'online')
 						_self.toMain(_self.username);
