@@ -12,7 +12,7 @@ module.exports = (params) => {
 	// if(versionNo == null || versionNo == undefined){
 	// 	versionNo = 'v5'
 	// }
-	let url = global_url+'/SubstationWEBV2/' + params.url;	
+	let url = global_url+'/SubstationWEBV2' + params.url;	
 	let method = params.method;	
 	let header = params.header || {};	
 	 // var header = obj.header || {

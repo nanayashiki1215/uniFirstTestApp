@@ -3,13 +3,17 @@
 		<!-- <page-head :title="title" style="color: #52C378;></page-head> -->
 		 <!-- <web-view :webview-styles="webviewStyles" src="http://116.236.149.165:8090/fileVersion/v5/H5-2/alarms.html"></web-view> #52C378 -->
 		<uni-list :border="false">
-			<uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称:" + item.fDevicename +"/\n事件类型："+item.fMessInfoTypeExplain' link>
+			<!-- <uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称:" + item.fDevicename +"\n事件类型：" + item.fMessInfoTypeExplain' link> -->
+			<uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称：" + item.fDevicename+"\n事件类型：" + item.fMessInfoTypeExplain' link>	
 				<template slot="header">
-					<image class="slot-image" src="../../static/img/alarmPic.png" mode="widthFix"></image>
+					<image class="slot-image" src="../../static/img/i-jiancedian.png" mode="widthFix"></image>
 				</template>
+				<!-- <view class="chat-custom-right">
+					<text class="chat-custom-text">刚刚</text>
+					<uni-icons type="star-filled" color="#999" size="18"></uni-icons>
+				</view> -->
 				<template slot="footer" class="chat-custom-right">
-					<text class="chat-custom-right">{{item.fMessInfoTypeExplain}}</text>
-					<text class="chat-custom-right">{{item.fAlarmtime}}</text>
+					<text style="font-size: 22rpx;color: #999999;">{{item.fAlarmtime}}</text>
 				</template>
 			</uni-list-item>
 			<!-- <uni-list-item v-for="(item,index) in listData" @switchChange="switchChange">
@@ -30,6 +34,7 @@
 					</view>
 				</view>
 					<template slot="footer">
+						<text>{{item.fMessInfoTypeExplain}}</text> 
 						<image class="slot-image" src="/static/logo.png" mode="widthFix"></image>
 						<text class="chat-custom-text">刚刚</text>
 						<uni-icons type="star-filled" color="#999" size="18"></uni-icons>
@@ -240,13 +245,14 @@
 	}
 	
 	.chat-custom-right {
-		/* flex: 1; */
+		flex: 1;
 		/* #ifndef APP-NVUE */
-		display: block;
+		display: flex;
 		/* #endif */
 		flex-direction: column;
-		justify-content: lex-end;
+		justify-content: space-between;
 		align-items: flex-end;
+		
 	}
 
 	.slot-text {

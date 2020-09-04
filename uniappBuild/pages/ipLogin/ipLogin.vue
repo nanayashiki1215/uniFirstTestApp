@@ -6,9 +6,9 @@
 		</view> -->
 		 <!-- <view class="image-item"> -->
 		     <view class="image-content">
-		        <image style="width: 100%; height: 600rpx; background-color: #FFFFFF;"  src="../../static/img/ipaddress.png"
+		        <image style="width: 100%; height: 600rpx; background-color: #FFFFFF;"  src="../../static/loginImg/ipaddress.png"
 		                        @error="imageError"></image>
-		        </view>
+		     </view>
 		<!-- </view> -->
 		<view class="input-group" style="margin-top: 100rpx;" v-if='ipAddress != null'>
 			<view class="input-row border" style="height: 67rpx;">
