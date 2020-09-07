@@ -1,6 +1,6 @@
 <template>
 	<view class="content" style="padding: 0rpx;background-color: #F4F4F4;">
-		<view class="image-content">
+		<!-- <view class="image-content">
 		   <image style="width: 100%; height: 250rpx;background-color: #02A8A6;"  src="../../static/homeIcon/headPic.jpg"
 						   @error="imageError"></image>
 		</view>
@@ -32,7 +32,7 @@
 						</uni-grid>
 					</view>
 			</view>
-		</view>
+		</view> -->
 		
 		<!-- <view class="content_box" >
 			<scroll-view scroll-y="true" @scrolltolower="loadMore" class="scroll-box">

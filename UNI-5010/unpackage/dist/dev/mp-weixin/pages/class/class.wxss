@@ -1,0 +1,25 @@
+
+.class_biao{
+	height: 200rpx;
+	font-weight: 550;
+}
+
+
+.top-nav{
+	background: rgb(84, 93, 161);
+	height: 200rpx;
+	border-radius: 20rpx;
+}
+.lint-or{
+	width: 48rpx;
+	height: 5rpx;
+	background:rgb(153, 158, 199);
+	border-radius: 20rpx;
+	margin-top: 6rpx;
+}
+.back-circle{
+	background: rgb(255, 255, 255);
+	padding: 15rpx;
+	border-radius: 100%;
+}
+

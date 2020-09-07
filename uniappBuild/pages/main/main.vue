@@ -31,19 +31,19 @@
 							<text>温湿度</text>
 						</view>
 					</uni-grid-item>
-					<uni-grid-item :index="5">
+					<uni-grid-item :index="4">
 						<view class="grid-item-box">
 							<image class="image" src="../../static/homeIcon/dsbgl1.png" mode="aspectFill" />
 							<text>水浸</text>
 						</view>
 					</uni-grid-item>
-					<uni-grid-item :index="6">
+					<uni-grid-item :index="5">
 						<view class="grid-item-box">
 							<image class="image" src="../../static/homeIcon/dsbgl1.png" mode="aspectFill" />
 							<text>烟雾</text>
 						</view>
 					</uni-grid-item>
-					<uni-grid-item :index="7">
+					<uni-grid-item :index="6">
 						<view class="grid-item-box">
 							<image class="image" src="../../static/homeIcon/dsbgl1.png" mode="aspectFill" />
 							<text>门状态</text>
@@ -93,12 +93,39 @@
 				} = e.detail;
 				
 			if(index == 0){
+				//电力参数
 				uni.navigateTo({
 					url:'../monitorSystem/ElectricData' 
 				})
 			}else if(index == 1){
+				//最大需量
 				uni.navigateTo({
 					url:'../monitorSystem/max' 
+				})
+			}else if(index == 2){
+				//功率因数
+				uni.navigateTo({
+					url:'../monitorSystem/max' 
+				})
+			}else if(index == 3){
+				//温湿度
+				uni.navigateTo({
+					url:'../monitorSystem/max' 
+				})
+			}else if(index == 4){
+				//水浸
+				uni.navigateTo({
+					url:'../Environment/TempWater' 
+				})
+			}else if(index == 5){
+				//烟雾
+				uni.navigateTo({
+					url:'../Environment/TempSmog' 
+				})
+			}else if(index == 6){
+				//门状态
+				uni.navigateTo({
+					url:'../Environment/TempDoor' 
 				})
 			}
 			

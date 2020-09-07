@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home",
+    "pages/class/class",
+    "pages/my/my",
+    "pages/class/timetable/timetable",
+    "pages/class/checking/checking",
+    "pages/my/setting/setting",
+    "pages/my/transcript/transcript",
+    "pages/my/transcriptDesc/transcriptDesc",
+    "pages/home/course_arrangement/course_arrangement",
+    "pages/home/scholastic_attainment/scholastic_attainment",
+    "pages/home/phone/phone",
+    "pages/home/exam/exam",
+    "pages/home/disengaged_classroom/disengaged_classroom",
+    "pages/home/overview/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#5677FC",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "static/tabar/1.png",
+        "selectedIconPath": "static/tabar/1b.png"
+      },
+      {
+        "text": "报警",
+        "pagePath": "pages/class/class",
+        "iconPath": "static/tabar/2.png",
+        "selectedIconPath": "static/tabar/2b.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "static/tabar/3.png",
+        "selectedIconPath": "static/tabar/3b.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap21.json"
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "报警",
+  "usingComponents": {
+    "time-table": "/pages/class/timetable/timetable",
+    "check": "/pages/class/checking/checking"
+  }
+}

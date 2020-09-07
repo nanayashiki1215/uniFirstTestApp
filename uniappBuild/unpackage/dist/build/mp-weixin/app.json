@@ -15,9 +15,19 @@
       ]
     },
     {
-      "root": "pages/System",
+      "root": "pages/monitorSystem",
       "pages": [
-        "systemHomePage"
+        "systemHomePage",
+        "ElectricData",
+        "max"
+      ]
+    },
+    {
+      "root": "pages/Environment",
+      "pages": [
+        "TempWater",
+        "TempDoor",
+        "TempSmog"
       ]
     }
   ],

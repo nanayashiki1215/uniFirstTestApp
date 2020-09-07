@@ -93,6 +93,40 @@
 				}
 			}
 			]
+			},{
+			"root":"pages/Environment",
+			"pages":[{
+				"path" : "TempWater",
+				"style" : {
+					"navigationBarTitleText": "水浸",
+					"enablePullDownRefresh":true,
+					"app-plus": {
+						"titleNView": {
+							// "type": "transparent",
+							"buttons": [
+								{
+									"text":"筛选",
+									"fontSize":"15px",
+									"background": "static/img/i-selectSome.png"
+								}
+							]
+						}
+					}
+				}
+			},{
+				"path" : "TempDoor",
+				"style" : {
+					"navigationBarTitleText": "门状态",
+					"enablePullDownRefresh":true
+				}
+			},{
+				"path" : "TempSmog",
+				"style" : {
+					"navigationBarTitleText": "烟雾",
+					"enablePullDownRefresh":true
+				}
+			}
+			]
 			}
 	],
 	

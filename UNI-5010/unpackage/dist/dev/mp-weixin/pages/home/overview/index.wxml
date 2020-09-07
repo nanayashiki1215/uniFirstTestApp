@@ -1,0 +1,1 @@
+<view class="content"><view><view class="page-section page-section-gap"><map style="width:100%;height:280px;" id="myMap" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location="{{true}}"></map></view></view><view><button type="default" data-event-opts="{{[['tap',[['phone',['$event']]]]]}}" bindtap="__e">拍照</button></view></view>

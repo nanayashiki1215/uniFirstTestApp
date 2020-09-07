@@ -4,7 +4,7 @@
 		 <!-- <web-view :webview-styles="webviewStyles" src="http://116.236.149.165:8090/fileVersion/v5/H5-2/alarms.html"></web-view> #52C378 -->
 		<uni-list :border="false">
 			<!-- <uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称:" + item.fDevicename +"\n事件类型：" + item.fMessInfoTypeExplain' link> -->
-			<uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称：" + item.fDevicename+"\n事件类型：" + item.fMessInfoTypeExplain' link>	
+			<uni-list-item v-for="(item,index) in listData" :title="item.fSubname" :note='"仪表名称：" + item.fDevicename + "    事件类型：" + item.fMessInfoTypeExplain' link>	
 				<template slot="header">
 					<image class="slot-image" src="../../static/img/i-jiancedian.png" mode="widthFix"></image>
 				</template>
